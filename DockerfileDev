@@ -1,0 +1,16 @@
+FROM node:16
+
+WORKDIR /usr/src/app
+
+# install nodemon globalmente en el container para poder poder crear la imagen con live-reload
+RUN npm install -g nodemon
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "start" ]
