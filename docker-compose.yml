@@ -9,9 +9,9 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     networks:
-      - curso-node
+      - node-express
     command: ["nodemon", "-L", "index.js"]
 
 networks:
-  curso-node:
+  node-express:
     
