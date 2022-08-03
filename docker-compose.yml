@@ -1,0 +1,17 @@
+services:
+  express:
+    build:
+      context: ./
+      dockerfile: DockerfileDev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - curso-node
+    command: ["nodemon", "-L", "index.js"]
+
+networks:
+  curso-node:
+    
