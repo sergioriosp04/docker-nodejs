@@ -1,6 +1,6 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
-const pool = require('../libs/postgres')
+const pool = require('../libs/postgres.pool')
 
 class ProductsService {
 
