@@ -12,6 +12,35 @@ services:
       - node-express
     command: ["nodemon", "-L", "index.js"]
 
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: curso_node
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - node-express
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=secret
+    ports:
+      - 8080:80
+    networks:
+      - node-express
+
 networks:
   node-express:
+
+volumes:
+  postgres:
+    external: true
+      
     
